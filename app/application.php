@@ -4,9 +4,12 @@ namespace App;
 
 class Application
 {
+    public array $data = [];
+
     public function __construct()
     {
-        echo 'test construct';
+        $this->config = require_once('./config.php');
+        $this->foo();
     }
 
     public function makeRequest()
@@ -17,14 +20,14 @@ class Application
 
     public function makeResponse()
     {
-        $this->response = var_dump($this->request);
+        $this->response = 'controller returned data';
         return $this->response;
     }
 
-    public function terminate()
+    private function terminate()
     {
-        $this->response = false;
-        $this->request = false;
+        $this->response = null;
+        $this->request = null;
 
         return false;
     }
@@ -32,5 +35,15 @@ class Application
     public function __destruct()
     {
         $this->terminate();
+    }
+
+    private function foo()
+    {
+        // TODO: parser from curl titles for 1-1000000 domains
+
+        //get list-data from file
+        $data = file_get_contents($this->config['database']['nosql']['from']);
+        //
+        //set data to file db
     }
 }

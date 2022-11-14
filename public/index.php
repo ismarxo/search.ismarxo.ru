@@ -11,9 +11,3 @@ if (file_exists($loader = __DIR__.'/../framework/loader.php')) {
 require __DIR__ . '/../autoload.php';
 
 $application = new Application();
-
-$application->makeRequest();
-
-$application->makeResponse();
-
-$application->terminate();
