@@ -1,13 +1,9 @@
 <?php
 
-use App\Application;
-
 define('APP_START', microtime(true));
 
-if (file_exists($loader = __DIR__.'/../framework/loader.php')) {
-    require_once $loader;
-}
+require_once('bootstrap.php');
 
-require __DIR__ . '/../autoload.php';
+use \Framework\Application as App;
 
-$application = new Application();
+$application = new App;

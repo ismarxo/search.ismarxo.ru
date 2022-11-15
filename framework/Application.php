@@ -1,6 +1,8 @@
 <?php
 
-namespace App;
+namespace Framework;
+
+use Framework\Model\FileManager;
 
 class Application
 {
@@ -39,6 +41,8 @@ class Application
 
     private function foo()
     {
+
+        $fileManager = new FileManager;
         // TODO: parser from curl titles for 1-1000000 domains
 
         //get list-data from file
